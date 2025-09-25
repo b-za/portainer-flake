@@ -57,7 +57,7 @@ outputs = { self, nixpkgs, portainer-flake, ... }: {
     modules = [
       ./configuration.nix
       # Consuming the module provided by the other flake
-      portainer-flake.nixosModules.portainer     {
+      portainer-flake.portainer     {
           services.portainer = {
             enable = true; # Default false
 
