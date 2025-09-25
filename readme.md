@@ -49,7 +49,7 @@ For instance, another flake could use your Portainer module like this:
 In another flake.nix
 ```nix
 
-inputs.portainer-flake.url = "github:user/portainer-nix-flake";
+inputs.portainer-flake.url = "github:b-za/portainer-flake";
 
 outputs = { self, nixpkgs, portainer-flake, ... }: {
   nixosConfigurations.my-server = nixpkgs.lib.nixosSystem {
