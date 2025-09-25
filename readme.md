@@ -57,7 +57,22 @@ outputs = { self, nixpkgs, portainer-flake, ... }: {
     modules = [
       ./configuration.nix
       # Consuming the module provided by the other flake
-      portainer-flake.nixosModules.portainer 
+      portainer-flake.nixosModules.portainer     {
+          services.portainer = {
+            enable = true; # Default false
+
+            version = "latest"; # Default latest, you can check dockerhub for
+                                # other tags.
+
+            openFirewall = false; # Default false, set to 'true' if you want
+                                    # to be able to access via the port on
+                                    # something other than localhost. 
+
+            port = 9443; # Sets the port number in both the firewall and
+                         # the docker container port mapping itself.
+        };
+      }
+
     ];
   };
 };
